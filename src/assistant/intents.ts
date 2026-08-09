@@ -1,0 +1,1 @@
+export const assistantSuggestions=['Explain this scenario','What is driving uptake?','What happens if waiting time increases?','How can I reduce cost?','Why is capacity exceeded?','What are the weakest assumptions?'];

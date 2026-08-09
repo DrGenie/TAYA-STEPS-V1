@@ -1,0 +1,8 @@
+import type { Scenario } from '../types/scenario';
+import type { ReachResult, CostResult } from '../types/model';
+export interface EconomicResult {additionalImproved:number;healthValue:number;healthServiceOffset:number;broaderBenefit:number;totalBenefit:number;economicCost:number;netBenefit:number;bcr:number;breakEvenBenefitPerCompleter:number;breakEvenQalyGain:number;breakEvenImprovementProbability:number;}
+export function calculateEconomic(s:Scenario,reach:ReachResult,cost:CostResult):EconomicResult {
+  const additionalImproved=reach.completed*s.improvementProbability; const healthValue=additionalImproved*s.qalyGain*s.qalyValue; const healthServiceOffset=additionalImproved*s.avoidedCost; const broaderBenefit=reach.completed*s.broaderBenefitPerCompleter; const totalBenefit=healthValue+healthServiceOffset+broaderBenefit; const economicCost=cost.annualTotalCost; const netBenefit=totalBenefit-economicCost; const bcr=economicCost>0?totalBenefit/economicCost:0; const breakEvenBenefitPerCompleter=reach.completed?economicCost/reach.completed:0; const denom=additionalImproved*s.qalyValue; const breakEvenQalyGain=denom>0?Math.max(0,(economicCost-healthServiceOffset-broaderBenefit)/denom):0; const benefitPerImproved=s.qalyGain*s.qalyValue+s.avoidedCost; const breakEvenImprovementProbability=reach.completed*benefitPerImproved>0?Math.max(0,(economicCost-broaderBenefit)/(reach.completed*benefitPerImproved)):0;
+  return {additionalImproved,healthValue,healthServiceOffset,broaderBenefit,totalBenefit,economicCost,netBenefit,bcr,breakEvenBenefitPerCompleter,breakEvenQalyGain,breakEvenImprovementProbability};
+}
+export function preferenceMonetaryEquivalent(beta:number,betaCostPer10:number):number { return betaCostPer10===0?0:(-beta/betaCostPer10)*10; }

@@ -1,0 +1,5 @@
+import { useScenarioStore } from '../../state/scenarioStore';
+import { defaultCapacity } from '../../data/defaultCapacity';
+import { Field } from '../common/Field';
+const entries=[['school','School wellbeing professional'],['gp','GP/youth-health clinician'],['generalPsych','General psychologist'],['clinicalPsych','Clinical psychologist'],['youthMental','Youth mental-health clinician'],['navigator','Youth worker/navigator'],['admin','Administration']] as const;
+export function CapacityInputs(){const s=useScenarioStore(x=>x.scenario),update=useScenarioStore(x=>x.updateScenario);const values=s.capacityFteOverrides??{};return <><Field label="Productive service hours per FTE per year" evidenceId="productive-hours"><input type="number" min="1" value={s.annualHours} onChange={e=>update({annualHours:Number(e.target.value)})}/></Field><div className="grid cols-2">{entries.map(([key,label])=><Field key={key} label={`${label} available FTE`}><input type="number" min="0" step="0.1" value={values[key]??defaultCapacity.fte[key]} onChange={e=>update({capacityFteOverrides:{...values,[key]:Number(e.target.value)}})}/></Field>)}</div></>;}

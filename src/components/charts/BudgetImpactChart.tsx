@@ -1,0 +1,4 @@
+import type { BudgetYear } from '../../engine/budgetImpact';
+import { AccessibleChart } from './AccessibleChart';
+import { formatCurrency } from '../../utils/currency';
+export function BudgetImpactChart({rows}: {rows:BudgetYear[]}){return <AccessibleChart title="Budget impact by year" description="Nominal undiscounted budget impact. Ordinary budget totals are not discounted." rows={rows} columns={[{key:'y',header:'Year',render:r=>r.year},{key:'v',header:'Variable',render:r=>formatCurrency(r.variable)},{key:'f',header:'Fixed',render:r=>formatCurrency(r.fixed)},{key:'t',header:'Total',render:r=>formatCurrency(r.total)},{key:'c',header:'Cumulative',render:r=>formatCurrency(r.cumulative)}]} option={{xAxis:{type:'category',data:rows.map(r=>`Year ${r.year}`)},yAxis:{type:'value',axisLabel:{formatter:(v:number)=>`$${Math.round(v/1000)}k`}},series:[{type:'bar',name:'Annual total',data:rows.map(r=>r.total),itemStyle:{color:'#2F6B9A'}}],tooltip:{trigger:'axis'}}}/>;}

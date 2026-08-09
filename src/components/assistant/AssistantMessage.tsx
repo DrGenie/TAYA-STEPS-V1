@@ -1,0 +1,1 @@
+export function AssistantMessage({text}: {text:string}){return <div className="assistant-message"><strong>TAYA Policy Assistant</strong><p style={{marginTop:8,whiteSpace:'pre-wrap'}}>{text}</p></div>;}

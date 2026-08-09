@@ -1,0 +1,4 @@
+import ReactECharts from 'echarts-for-react';
+import type { EChartsOption } from 'echarts';
+import { DataTable, type Column } from '../common/DataTable';
+export function AccessibleChart<T>({title,description,option,rows,columns}: {title:string;description:string;option:EChartsOption;rows:T[];columns:Column<T>[]}){return <section className="chart-shell" aria-labelledby={`chart-${title.replace(/\W/g,'-')}`}><h3 id={`chart-${title.replace(/\W/g,'-')}`}>{title}</h3><p className="small muted">{description}</p><div aria-hidden="true"><ReactECharts option={{...option,animation:false,textStyle:{fontFamily:'-apple-system, BlinkMacSystemFont, Segoe UI, Arial, sans-serif'}}} style={{height:340}}/></div><details><summary>View data table</summary><DataTable caption={`${title} data`} rows={rows} columns={columns}/></details></section>;}

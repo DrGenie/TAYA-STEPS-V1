@@ -1,0 +1,4 @@
+import type { EquityRow } from '../../engine/equity';
+import { AccessibleChart } from './AccessibleChart';
+import { formatPercent } from '../../utils/format';
+export function EquityDotPlot({rows}: {rows:EquityRow[]}){return <AccessibleChart title="Modelled uptake across prototype groups" description="Only specified prototype modifiers are applied. Other protected characteristics remain neutral." rows={rows} columns={[{key:'g',header:'Group',render:r=>r.group},{key:'u',header:'Uptake',render:r=>formatPercent(r.uptake)},{key:'d',header:'Difference',render:r=>formatPercent(r.difference)}]} option={{xAxis:{type:'value',min:0,max:1,axisLabel:{formatter:(v:number)=>`${v*100}%`}},yAxis:{type:'category',data:rows.map(r=>r.group)},series:[{type:'scatter',symbolSize:14,data:rows.map((r,i)=>[r.uptake,i]),itemStyle:{color:'#007A78'}}],tooltip:{formatter:(p:any)=>`${rows[p.data[1]].group}: ${(p.data[0]*100).toFixed(1)}%`}}}/>;}

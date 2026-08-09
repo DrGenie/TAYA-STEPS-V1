@@ -1,0 +1,1 @@
+export function PrototypeStrip(){return <div className="status-strip"><div className="container">Research prototype | Literature-informed illustrative parameters | Not an Australian Government service</div></div>;}

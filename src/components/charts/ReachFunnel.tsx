@@ -1,0 +1,3 @@
+import type { ReachResult } from '../../types/model';
+import { formatNumber } from '../../utils/format';
+export function ReachFunnel({reach}: {reach:ReachResult}){const rows=[['Target population',reach.target],['Offered',reach.offered],['Predicted uptake / starters',reach.starters],['Completed',reach.completed],['Referred where indicated',reach.referred],['Referral completed',reach.referralCompleted]];return <section><h3>Service reach pathway</h3><div className="reach-flow">{rows.map(([label,value])=><div className="reach-step" key={label as string}><span className="small">{label}</span><strong>{formatNumber(value as number)}</strong><span className="small muted">{formatNumber((value as number)/reach.target*100,1)}% of target</span></div>)}</div></section>;}
