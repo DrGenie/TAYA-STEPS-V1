@@ -1,0 +1,7 @@
+import type { Scenario } from '../types/scenario';
+import { calculateUptake } from '../engine/uptake';
+import { calculateReach } from '../engine/reach';
+import { ReachFunnel } from '../components/charts/ReachFunnel';
+import { DataTable } from '../components/common/DataTable';
+import { formatNumber, formatPercent } from '../utils/format';
+export function ReachResults({scenario}: {scenario:Scenario}){const u=calculateUptake(scenario),r=calculateReach(scenario,u.family);const rows=[['Target population',r.target],['Offered',r.offered],['Starters',r.starters],['Completed',r.completed],['Referred',r.referred],['Referral completed',r.referralCompleted]].map(([stage,value])=>({stage,value:Number(value)}));return <section><h2>Reach</h2><p><strong>Headline result:</strong> approximately {formatNumber(r.starters)} starters from {formatNumber(r.offered)} adolescents offered the pathway.</p><ReachFunnel reach={r}/><DataTable caption="Population and reach" rows={rows} columns={[{key:'s',header:'Stage',render:x=>x.stage},{key:'n',header:'Number',render:x=>formatNumber(x.value)},{key:'p',header:'% of target',render:x=>formatPercent(x.value/r.target)}]}/><p className="small">Reach applies the modelled family-compatible uptake to the offered planning cohort, then applies editable completion and referral assumptions. <a href={'#/evidence?domain=implementation'}>View implementation assumptions</a>.</p></section>;}

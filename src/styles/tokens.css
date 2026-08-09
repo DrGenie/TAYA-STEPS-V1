@@ -1,0 +1,29 @@
+:root{
+  --taya-navy:#12345B;
+  --taya-navy-dark:#0B2440;
+  --taya-teal:#007A78;
+  --taya-teal-dark:#006664;
+  --taya-blue:#2F6B9A;
+  --taya-link:#005EA8;
+  --taya-ochre:#C68A00;
+  --taya-success:#177245;
+  --taya-error:#B42318;
+  --taya-text:#17222B;
+  --taya-muted:#4D5965;
+  --taya-border:#C7D0D8;
+  --taya-border-light:#E1E6EA;
+  --taya-surface:#F6F8FA;
+  --taya-teal-surface:#E8F5F4;
+  --taya-warning-surface:#FFF4D6;
+  --taya-white:#FFFFFF;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:48px;
+  --radius:4px;
+  --content:1120px;
+  --measure:72ch;
+}

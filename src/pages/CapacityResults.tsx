@@ -1,0 +1,8 @@
+import type { Scenario } from '../types/scenario';
+import { calculateUptake } from '../engine/uptake';
+import { calculateReach } from '../engine/reach';
+import { calculateCapacity } from '../engine/capacity';
+import { CapacityChart } from '../components/charts/CapacityChart';
+import { DataTable } from '../components/common/DataTable';
+import { formatNumber, formatPercent } from '../utils/format';
+export function CapacityResults({scenario}: {scenario:Scenario}){const u=calculateUptake(scenario),r=calculateReach(scenario,u.family),c=calculateCapacity(scenario,r);const rows=[{m:'Required hours',v:formatNumber(c.requiredHours,0)},{m:'Available hours',v:formatNumber(c.availableHours,0)},{m:'Capacity utilisation',v:formatPercent(c.utilisation)},{m:'FTE required',v:c.fteRequired.toFixed(2)},{m:'FTE available',v:c.fteAvailable.toFixed(2)},{m:'FTE gap',v:c.fteGap.toFixed(2)},{m:'Maximum annual starters',v:formatNumber(c.maximumAnnualStarters)},{m:'Monthly demand',v:formatNumber(c.monthlyDemand)},{m:'Referral demand',v:formatNumber(c.referralDemand)}];return <section><h2>Capacity</h2><p><strong>Headline result:</strong> {c.status}. Required workforce is {c.fteRequired.toFixed(2)} FTE compared with {c.fteAvailable.toFixed(2)} FTE available.</p><p><strong>Status:</strong> {c.utilisation<0.8?'✓':c.utilisation<=1?'!':'×'} {c.status}</p><CapacityChart capacity={c}/><DataTable caption="Capacity calculations" rows={rows} columns={[{key:'m',header:'Measure',render:x=>x.m},{key:'v',header:'Value',render:x=>x.v}]}/><p className="small">Capacity uses productive direct-service hours per FTE and the pathway-specific resource use. <a href={'#/methods#capacity'}>View method</a>.</p></section>;}
