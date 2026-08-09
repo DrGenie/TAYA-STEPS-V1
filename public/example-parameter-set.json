@@ -1,0 +1,218 @@
+{
+  "version": "prototype-0.9.0",
+  "name": "Example empirical-compatible parameter set",
+  "date": "2026-08-08",
+  "source": {
+    "title": "TAYA-STEPS prototype example parameter file",
+    "authorsOrOrganisation": "TAYA-STEPS research prototype",
+    "url": "https://github.com/"
+  },
+  "youth": {
+    "asc": {
+      "mean": 0.45,
+      "se": 0.15
+    },
+    "setting": {
+      "school": {
+        "mean": 0.05,
+        "se": 0.08
+      },
+      "gp": {
+        "mean": 0,
+        "se": 0
+      },
+      "youth-service": {
+        "mean": 0.18,
+        "se": 0.09
+      },
+      "online": {
+        "mean": 0.1,
+        "se": 0.1
+      }
+    },
+    "waitPerWeek": {
+      "mean": -0.11,
+      "se": 0.025
+    },
+    "delivery": {
+      "face-to-face": {
+        "mean": 0.08,
+        "se": 0.07
+      },
+      "video": {
+        "mean": 0.02,
+        "se": 0.07
+      },
+      "online-checkins": {
+        "mean": -0.08,
+        "se": 0.08
+      },
+      "choice": {
+        "mean": 0.2,
+        "se": 0.08
+      }
+    },
+    "parentInvolvement": {
+      "youth-choice": {
+        "mean": 0.3,
+        "se": 0.1
+      },
+      "first-contact": {
+        "mean": 0.08,
+        "se": 0.09
+      },
+      "progress-summaries": {
+        "mean": -0.08,
+        "se": 0.1
+      },
+      "scheduled-contacts": {
+        "mean": -0.18,
+        "se": 0.11
+      }
+    },
+    "professionalSupport": {
+      "navigation": {
+        "mean": 0,
+        "se": 0
+      },
+      "three": {
+        "mean": 0.12,
+        "se": 0.07
+      },
+      "six": {
+        "mean": 0.18,
+        "se": 0.08
+      },
+      "stepped": {
+        "mean": 0.28,
+        "se": 0.09
+      }
+    },
+    "followUp": {
+      "requested": {
+        "mean": 0,
+        "se": 0
+      },
+      "one-week": {
+        "mean": 0.08,
+        "se": 0.06
+      },
+      "one-month": {
+        "mean": 0.05,
+        "se": 0.06
+      },
+      "both": {
+        "mean": 0.12,
+        "se": 0.07
+      }
+    },
+    "costPer10": {
+      "mean": -0.055,
+      "se": 0.012
+    }
+  },
+  "parent": {
+    "asc": {
+      "mean": 0.6,
+      "se": 0.15
+    },
+    "setting": {
+      "school": {
+        "mean": 0,
+        "se": 0
+      },
+      "gp": {
+        "mean": 0.1,
+        "se": 0.08
+      },
+      "youth-service": {
+        "mean": 0.28,
+        "se": 0.09
+      },
+      "online": {
+        "mean": -0.08,
+        "se": 0.1
+      }
+    },
+    "waitPerWeek": {
+      "mean": -0.13,
+      "se": 0.025
+    },
+    "delivery": {
+      "face-to-face": {
+        "mean": 0.15,
+        "se": 0.07
+      },
+      "video": {
+        "mean": 0.03,
+        "se": 0.07
+      },
+      "online-checkins": {
+        "mean": -0.12,
+        "se": 0.08
+      },
+      "choice": {
+        "mean": 0.18,
+        "se": 0.08
+      }
+    },
+    "parentInvolvement": {
+      "youth-choice": {
+        "mean": -0.05,
+        "se": 0.1
+      },
+      "first-contact": {
+        "mean": 0.18,
+        "se": 0.09
+      },
+      "progress-summaries": {
+        "mean": 0.2,
+        "se": 0.09
+      },
+      "scheduled-contacts": {
+        "mean": 0.12,
+        "se": 0.1
+      }
+    },
+    "professionalSupport": {
+      "navigation": {
+        "mean": 0,
+        "se": 0
+      },
+      "three": {
+        "mean": 0.15,
+        "se": 0.07
+      },
+      "six": {
+        "mean": 0.25,
+        "se": 0.08
+      },
+      "stepped": {
+        "mean": 0.38,
+        "se": 0.09
+      }
+    },
+    "followUp": {
+      "requested": {
+        "mean": 0,
+        "se": 0
+      },
+      "one-week": {
+        "mean": 0.1,
+        "se": 0.06
+      },
+      "one-month": {
+        "mean": 0.08,
+        "se": 0.06
+      },
+      "both": {
+        "mean": 0.16,
+        "se": 0.07
+      }
+    },
+    "costPer10": {
+      "mean": -0.065,
+      "se": 0.013
+    }
+  }
+}
